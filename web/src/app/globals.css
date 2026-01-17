@@ -1,0 +1,138 @@
+@import "tailwindcss";
+
+:root {
+  --color-background: #0a0014;
+  --color-background-soft: #14002d;
+  --color-primary: #6b36ff;
+  --color-primary-soft: rgba(107, 54, 255, 0.45);
+  --color-text: #cba3ff;
+  --color-text-muted: rgba(203, 163, 255, 0.72);
+  --color-accent: #ff9dff;
+  --color-gradient-start: #a367ff;
+  --color-gradient-end: #ff9dff;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--color-background);
+    /* Performance: optimize font rendering */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    position: relative;
+    margin: 0;
+    min-height: 100vh;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-family: var(--font-body, "Inter"), system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+    /* Performance: optimize rendering */
+    text-rendering: optimizeLegibility;
+  }
+
+  body::before,
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  body::before {
+    background: radial-gradient(
+        140% 90% at 100% 0%,
+        rgba(255, 157, 255, 0.27),
+        transparent 60%
+      ),
+      radial-gradient(
+        110% 80% at 0% 20%,
+        rgba(163, 103, 255, 0.22),
+        transparent 55%
+      );
+    filter: blur(20px);
+  }
+
+  body::after {
+    /* Optimized background image (73KB vs 1.8MB) */
+    background-image: url("/drivn.ai_logo_background_optimized.jpg"),
+      linear-gradient(
+        115deg,
+        rgba(107, 54, 255, 0.4) 0%,
+        rgba(10, 0, 20, 0) 55%
+      );
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    mix-blend-mode: screen;
+    opacity: 0.9;
+    /* Temporarily disabled animation for performance */
+    /* animation: backgroundGlide 24s ease-in-out infinite alternate; */
+    will-change: auto;
+    /* Performance: prevent blocking render */
+    content-visibility: auto;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading, "Poppins"), "Inter", system-ui, sans-serif;
+    color: #f2e6ff;
+  }
+
+  p {
+    color: var(--color-text-muted);
+  }
+}
+
+.floating-logo {
+  /* Temporarily disabled animation for performance */
+  /* animation: floatLogo 11s ease-in-out infinite alternate; */
+}
+
+@keyframes floatLogo {
+  0% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-18px) scale(1.02);
+  }
+  100% {
+    transform: translateY(10px) scale(0.99);
+  }
+}
+
+@keyframes backgroundGlide {
+  0% {
+    transform: translateY(-4%) scale(1.02);
+    opacity: 0.85;
+  }
+  50% {
+    transform: translateY(2%) scale(1.03);
+    opacity: 0.95;
+  }
+  100% {
+    transform: translateY(-2%) scale(1.01);
+    opacity: 0.88;
+  }
+}
+
+.logo-dot-enhanced {
+  position: absolute;
+  top: 46%;
+  left: 56.5%;
+  width: clamp(18px, 3.6vw, 42px);
+  aspect-ratio: 1 / 1;
+  border-radius: 9999px;
+  background: radial-gradient(circle at 35% 35%, #f7e7ff 0%, #e3baff 55%, #b987ff 100%);
+  box-shadow: 0 10px 28px rgba(124, 77, 255, 0.35);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 0.95;
+}
