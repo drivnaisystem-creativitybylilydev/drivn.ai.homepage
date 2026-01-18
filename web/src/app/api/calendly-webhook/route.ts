@@ -27,9 +27,9 @@ export async function POST(request: NextRequest) {
       const inviteeUri = payload.invitee?.uri;
       
       // Get scheduled time
-      const scheduledTime = payload.scheduled_event?.start_time;
-      const scheduledTimeFormatted = scheduledTime 
-        ? new Date(scheduledTime).toISOString()
+      const scheduledTimeRaw = payload.scheduled_event?.start_time;
+      const scheduledTimeFormatted = scheduledTimeRaw 
+        ? new Date(scheduledTimeRaw).toISOString()
         : null;
       
       // Parse date and time components
