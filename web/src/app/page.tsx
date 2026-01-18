@@ -30,8 +30,8 @@ export default function Home() {
     <div className="relative min-h-screen bg-[#0a0014] text-white">
       <div className="absolute inset-x-0 top-0 z-0 h-[420px] bg-[radial-gradient(circle_at_top,_rgba(255,157,255,0.22),_transparent_60%)] blur-2xl" />
       <main className="relative z-10 mx-auto flex w-full max-w-[1280px] flex-col gap-12 px-6 pb-24 pt-[4px] sm:px-10">
-        <nav className="sticky top-4 z-50 mx-auto flex w-full max-w-5xl items-center justify-center px-8 py-4 text-white">
-          <div className="flex items-center justify-center gap-6 font-semibold">
+        <nav className="sticky top-0 z-50 w-full bg-[#0a0014]/95 backdrop-blur-md border-b border-white/5 py-4">
+          <div className="mx-auto flex max-w-5xl items-center justify-center gap-6 font-semibold">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
